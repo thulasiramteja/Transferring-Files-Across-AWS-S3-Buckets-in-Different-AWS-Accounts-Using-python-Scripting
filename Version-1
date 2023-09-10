@@ -1,0 +1,23 @@
+import boto3
+
+# Initialize S3 clients for source and destination AWS accounts
+source_s3 = boto3.client('s3', region_name='source-region', aws_access_key_id='source-access-key', aws_secret_access_key='source-secret-key')
+destination_s3 = boto3.client('s3', region_name='destination-region', aws_access_key_id='destination-access-key', aws_secret_access_key='destination-secret-key')
+
+# Define the source and destination bucket names
+source_bucket = 'source-bucket-name'
+destination_bucket = 'destination-bucket-name'
+
+# List objects in the source bucket
+objects = source_s3.list_objects_v2(Bucket=source_bucket)
+
+# Iterate through objects and copy them to the destination bucket
+for obj in objects.get('Contents', []):
+    object_key = obj['Key']
+    source_object = {'Bucket': source_bucket, 'Key': object_key}
+    destination_object = {'Bucket': destination_bucket, 'Key': object_key}
+    
+    # Copy the object
+    source_s3.copy_object(CopySource=source_object, Bucket=destination_bucket, Key=object_key)
+
+print("File transfer complete.")
