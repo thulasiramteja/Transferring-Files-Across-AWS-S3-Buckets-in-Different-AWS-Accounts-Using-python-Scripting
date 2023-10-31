@@ -1,7 +1,7 @@
 # Transferring-Files-Across-AWS-S3-Buckets-in-Different-AWS-Accounts-Using-python-Scripting
 Introduction:
-This have is to demonstrate the Transferring Files Across AWS S3 Buckets in Different AWS Accounts Using AWS SDK python Script.
-S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance.
+This task is to Transferring Files Across AWS S3 Buckets in Different AWS Accounts Using AWS SDK python Script.
+S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance by Amazon.
 In this Task, 2 AWS accounts are Included with their access and secret key.
 
 Steps:
